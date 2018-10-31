@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+// IMPORTANDO PAQUETE PARA PDF
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import {NgxWebstorageModule} from 'ngx-webstorage';
 
@@ -18,9 +20,12 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
 
 
+import { CorreoComponent } from './components/correo/correo.component';
+
 @NgModule({
   declarations: [
     AppComponent,
+    CorreoComponent,
     CuestionarioComponent,
     GraficoDonaComponent,
     UsuarioComponent
@@ -33,7 +38,6 @@ import { environment } from 'src/environments/environment';
     FormsModule,
     NgxWebstorageModule.forRoot(),
     NgbModule
-
   ],
   providers: [
     UsuarioService,

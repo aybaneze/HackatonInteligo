@@ -22,11 +22,16 @@
     "@angular/platform-browser-dynamic": "^6.0.0",
     "@angular/router": "^6.0.0",
     "@ng-bootstrap/ng-bootstrap": "^4.0.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.4",
+    "ng2-pdf-viewer": "^5.2.0",
+    "nodemailer": "^4.6.8",
+    "rxjs": "^6.3.3",
     "core-js": "^2.5.4",
     "ngx-webstorage": "^3.0.0-beta.10",
     "firebase": "^5.5.6",
     "ng2-charts": "^1.6.0",
-    "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
