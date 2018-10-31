@@ -1,7 +1,8 @@
+<app-header></app-header>
 <div class="card mt-5">
   <div class="card-body">
 
-    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>     
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="form-group">
         <label for="nameClient">Nombres y Apellidos</label>
         <input type="text" class="form-control" name="nameClient" #nameClient="ngModel" [(ngModel)]="model.nameClient"

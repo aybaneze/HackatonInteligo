@@ -1,11 +1,4 @@
-<header>
-  <nav class="navbar">
-    <img src="http://subirimagen.me/uploads/20181030144712.jpg" height="50" alt="logo del empresa">
-  </nav>
-  <div class="container-fluid  bp-SubNav ">
-    <p>Conociendo mi perfil <strong> > Mi perfil ></strong>Mi registro</p>
-  </div>
-</header>
+<app-header></app-header>
 <div class="container-fluid d-flex justify-content-center">
   <h3 class="bp-textTitle">Basado en sus respuestas, le presentamos su perfil de inversión</h3>
 </div>
@@ -14,10 +7,12 @@
     <div class="bp-boxInformation ">
       <div class="card" style="width: 25rem;">
         <div class="card-header text-center">
-          MODERADO
+          <p>{{profile | uppercase}}</p>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Retorno promedio anual esperado <sup>1</sup> <p class="bp-result">{{casa}}</p> </li>
+          <li class="list-group-item">Retorno promedio anual esperado <sup>1</sup>
+            <p class="bp-result">{{casa}}</p>
+          </li>
           <li class="list-group-item">Mejor año <sup>2</sup> </li>
           <li class="list-group-item">Peor Año <sup>2</sup></li>
           <li class="list-group-item">Para inversionistas de largo plazo que buscan crecimiento moderado en su
@@ -39,9 +34,11 @@
       </div>
     </div>
   </div>
- 
-  <div class="bp-divBtnRegistrarme text-center">
-      <button  class="btn btn-primary btn-lg" (click)="vistaRegistro()">Registro</button>
-      <!-- <a href="#" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true" (click)="vistaRegistro()" >Registrarme</a> -->
+
+  <div class="bp-divBtnRegistrarme text-center d-flex justify-content-center">
+    <!-- <button class="btn btn-primary btn-lg" (click)="vistaRegistro()">Registro</button> -->
+    <!-- <a href="#" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true" (click)="vistaRegistro()" >Registrarme</a> -->
+      <a [routerLink]="['/conociendo-mi-perfil']">< Cambiar mi respuesta</a>
+      <button class="btn btn-primary btn-lg disabled" (click)="vistaRegistro()">Registrarme</button>
   </div>
 </section>

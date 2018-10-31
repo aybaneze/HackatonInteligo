@@ -1,34 +1,3 @@
-.navbar{
-    background-color:  #0b1d75;
-    height: 71px;
-}
-
-.navbar img{
-    margin-left: 30px;
-} 
-
-.bp-SubNav{
-    height: 45px;
-    background-color:#f3f3f3;
-    color: #8285bf;
-}
-
-.bp-SubNav p{
-    color :  #0b1d75;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-left: 92px;
-    padding-top: 8px;
-    size: 22px;
-}
-
-.bp-textTitle{
-    margin-left: 80px;
-    margin-top: 30px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size : 30px;
-    font-weight: bolder;
-}
-
 section {
     width: 100%;
 }
@@ -36,17 +5,18 @@ section {
 .bp-SubSection {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     border-bottom: gray;
 }
 
 .bp-boxInformation, .bp-boxDona {
     display: flex;
+    align-items: baseline;
     flex: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 120px;
+    margin-top: 80px;
     margin-left: 50px;
     margin-right: 50px;
 }
@@ -56,15 +26,12 @@ section {
 }
 
 .card-header {
-    background: #0b1d75; 
+    background: #0b1d75;
     color: #ffffff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bolder;
 }
 
-img {
-    width: 300px;
-}
 .btn {
     background: #0b1d75;
     opacity: 1;
@@ -72,4 +39,11 @@ img {
     margin: 60px;
     font-size: 22px;
     border: #0b1d75;
+    cursor: pointer;
+}
+
+.bp-divBtnRegistrarme {
+    display: flex;
+    align-items: baseline;
+    color: #0b1d75;
 }

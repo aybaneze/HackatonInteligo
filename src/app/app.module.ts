@@ -25,6 +25,7 @@ import { CorreoComponent } from './components/correo/correo.component';
 
 import { APP_ROUTING } from './app.routes';
 import { VistaDonasComponent } from './components/vista-donas/vista-donas.component';
+import { HeaderComponent } from './components/shared/header/header.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { VistaDonasComponent } from './components/vista-donas/vista-donas.compon
     CuestionarioComponent,
     GraficoDonaComponent,
     UsuarioComponent,
-    VistaDonasComponent
+    VistaDonasComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

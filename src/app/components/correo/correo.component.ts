@@ -25,10 +25,8 @@ export class CorreoComponent implements OnInit {
   show: string;
 
   @ViewChild('showResult') showResult: ElementRef;
-  private modalRef: NgbModalRef;
 
-
-  constructor(private madril: MandrilService, private modalService: NgbModal,private _sessinSt: SessionStorageService, private _router: Router) { }
+  constructor(private madril: MandrilService, private modalService: NgbModal, private _sessinSt: SessionStorageService, private _router: Router) { }
 
   ngOnInit() {
     this.show = this._sessinSt.retrieve('showresult');
@@ -104,6 +102,8 @@ export class CorreoComponent implements OnInit {
   }
 
   private getDismissReason(reason: any): string {
+    console.log('dismissssssssss');
+    this._router.navigate(['/mi-perfil']);
     if (reason === ModalDismissReasons.ESC) {
       return "by pressing ESC";
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
