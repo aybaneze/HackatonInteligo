@@ -88,7 +88,14 @@ export class UsuarioComponent implements OnInit {
         ],
         headers: {
           'Reply-To': "marycatty@laboratoria.la"
+        },
+        attachments: [
+        {
+            "type": "text/plain",
+            "name": "contrato.pdf",
+            "content": "ZXhhbXBsZSBmaWxl"
         }
+      ],
 
       }
     };
