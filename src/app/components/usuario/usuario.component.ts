@@ -64,7 +64,7 @@ export class UsuarioComponent implements OnInit {
     this.data = {
       key: 'ZGiSDAUGJIgaCMIqm9ysPA',
       message: {
-        html: `<p style="color:black; font-size:16px">Este mensaje le ha sido enviado porque usted ha rellenado el
+        html: `<p style="color:black; font-size:16px">Este mensaje se le envió porque usted ha rellenado el
         cuestionario de la <strong>Bolsa de Valores de Inteligo</strong> para poder evaluar su perfil y portafolio.Adjunto archivo
         con detalle de su perfil y portafolio.<br></p>
         <p><strong>Bolsa de Valores Inteligo</strong><br>
