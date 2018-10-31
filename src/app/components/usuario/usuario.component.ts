@@ -99,10 +99,8 @@ export class UsuarioComponent implements OnInit {
      
     });
 
-    this._router.navigate(['/mi-perfil']);
-    
+    this._router.navigate(['/conociendo-mi-perfil']);
 
-/*     this.modal.dismiss('Cross click') */
     
   } 
 
