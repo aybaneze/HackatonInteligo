@@ -6,32 +6,32 @@ import { SessionStorageService } from "ngx-webstorage";
   templateUrl: "./grafico-dona.component.html",
   styleUrls: ["./grafico-dona.component.css"]
 })
-export class GraficoDonaComponent implements OnInit{
+export class GraficoDonaComponent implements OnInit {
   // Doughnut
   profile: string;
   doughnutChartLabels: string[];
   doughnutChartData: number[];
   doughnutChartType: string = "doughnut";
-  doughnutChartLegend:boolean = true;
+  doughnutChartLegend: boolean = true;
   doughnutChartOptions;
+  doughnutColors: any;
 
-  constructor(private _session: SessionStorageService) {}
+  constructor(private _session: SessionStorageService) { }
 
   ngOnInit() {
     this.profile = this._session.retrieve('profile');
     console.log(this.profile);
     this.mostrarData();
-    this.doughnutChartOptions= {
-      responsive:true,
-      legend:{
-        display:true,
+    this.doughnutChartOptions = {
+      responsive: true,
+      legend: {
+        display: true,
         position: "bottom",
-        labels:{
-          fontSize: 17,
-          boxWidth: 20,
+        labels: {
+          fontSize: 13,
+          boxWidth: 70,
         }
       }
-
     }
   }
   // events
@@ -44,25 +44,25 @@ export class GraficoDonaComponent implements OnInit{
   }
 
   mostrarData() {
-    if(this.profile === 'Defensivo'){
+    if (this.profile === 'Defensivo') {
       this.doughnutChartLabels = ["Caja y Equivalentes", "Renta Fija", "Renta Variable", "Renta Alternativa"];
-      this.doughnutChartData = [100,0,0,0];
+      this.doughnutChartData = [100, 0, 0, 0];
     }
-    else if(this.profile === 'Altamente Conservador'){
+    else if (this.profile === 'Altamente Conservador') {
       this.doughnutChartLabels = ["Caja y Equivalentes", "Renta Fija", "Renta Variable", "Renta Alternativa"];
-      this.doughnutChartData = [40,60,0,0]
+      this.doughnutChartData = [40, 60, 0, 0]
     }
-    else if(this.profile === 'Conservador'){
+    else if (this.profile === 'Conservador') {
       this.doughnutChartLabels = ["Caja y Equivalentes", "Renta Fija", "Renta Variable", "Renta Alternativa"];
-      this.doughnutChartData = [10,73,12,5]
+      this.doughnutChartData = [10, 73, 12, 5]
     }
-    else if(this.profile === 'Moderado'){
+    else if (this.profile === 'Moderado') {
       this.doughnutChartLabels = ["Caja y Equivalentes", "Renta Fija", "Renta Variable", "Renta Alternativa"];
-      this.doughnutChartData = [5,48,35,12]
+      this.doughnutChartData = [5, 48, 35, 12]
     }
-    else if(this.profile === 'Agresivo'){
+    else if (this.profile === 'Agresivo') {
       this.doughnutChartLabels = ["Caja y Equivalentes", "Renta Fija", "Renta Variable", "Renta Alternativa"];
-      this.doughnutChartData = [2,28,50,20]
+      this.doughnutChartData = [2, 28, 50, 20]
     }
   }
 }
