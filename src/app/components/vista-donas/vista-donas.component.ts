@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SessionStorageService } from "ngx-webstorage";
 
 @Component ({
@@ -11,7 +12,7 @@ export class VistaDonasComponent implements OnInit {
   profile: string;
   data=[];
 
-  constructor(private _sesion: SessionStorageService) { }
+  constructor(private _router: Router, private _sesion: SessionStorageService) { }
 
   ngOnInit() {
     this.profile = this._sesion.retrieve('profile');
@@ -57,5 +58,8 @@ export class VistaDonasComponent implements OnInit {
     }
   }
 
+  vistaRegistro() {
+    this._router.navigate(['/registro']);
+  }
 }
 
