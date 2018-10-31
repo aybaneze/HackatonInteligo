@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { MandrilService } from 'src/app/services/mandril.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuario',
@@ -21,7 +22,7 @@ export class UsuarioComponent implements OnInit {
   @ViewChild('showResult') showResult: ElementRef;
 
   constructor(
-    public usuarioService: UsuarioService, private modalService: NgbModal, private madril: MandrilService) { }
+    public usuarioService: UsuarioService, private modalService: NgbModal, private madril: MandrilService, private _router: Router) { }
 
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
@@ -55,9 +56,7 @@ export class UsuarioComponent implements OnInit {
     setTimeout(() => {
       this.showResult.nativeElement;
     }, 400);
-    this.email = this.model.email;
-       
-    
+    this.email = this.model.email;   
   }
 
    sendEmail() {
@@ -99,6 +98,11 @@ export class UsuarioComponent implements OnInit {
       console.log(result);
      
     });
+
+    this._router.navigate(['/mi-perfil']);
+    
+
+/*     this.modal.dismiss('Cross click') */
     
   } 
 
