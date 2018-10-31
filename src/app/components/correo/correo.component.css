@@ -1,0 +1,7 @@
+.tile {
+    padding-left: 30px;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
+

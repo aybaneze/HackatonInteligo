@@ -49,14 +49,13 @@ export class UsuarioComponent implements OnInit {
 
   }
 
-
   onSubmit() {
     console.log(this.model);
     this.usuarioService.insertUsuario(this.model);
     setTimeout(() => {
       this.showResult.nativeElement;
     }, 400);
-    this.email = this.model.email;   
+    this.email = this.model.email;
   }
 
    sendEmail() {
@@ -96,16 +95,7 @@ export class UsuarioComponent implements OnInit {
 
     this.madril.sendMadril(this.data).subscribe(result => {
       console.log(result);
-     
     });
-
     this._router.navigate(['/conociendo-mi-perfil']);
-
-    
-  } 
-
-
-
-
-
+  }
 }

@@ -23,15 +23,21 @@
 
                   </div>
                 </div>
+                <p *ngIf="showError" class="animated fadeIn fast">
+                  <ngb-alert #warning [dismissible]="false" [type]="'danger'">
+                    Debe responder la pregunta
+                  </ngb-alert>
+                </p>
                 <div class="d-flex justify-content-end">
                   <button class="btn bg-info text-white mt-3" (click)="siguiente()" *ngIf="showButton">Siguiente</button>
                 </div>
+
               </div>
             </div>
           </ng-container>
         </div>
         <div class="text-center">
-          <button class="btn btn-primary mt-3 mb-3" *ngIf="showButtonFinalize">Finalizar</button>
+          <button class="btn btn-primary mt-3 mb-3" *ngIf="showButtonFinalize" (click)="validateRadioButton()">Finalizar</button>
         </div>
 
       </form>
