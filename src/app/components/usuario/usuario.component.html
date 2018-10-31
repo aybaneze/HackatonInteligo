@@ -1,18 +1,19 @@
 <app-header></app-header>
 <div class="card mt-5">
   <div class="card-body">
-
+    <h3>Datos Personales</h3>
     <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+
       <div class="form-group">
-        <label for="nameClient">Nombres y Apellidos</label>
+        <label for="nameClient">Nombres y Apellidos :</label>
         <input type="text" class="form-control" name="nameClient" #nameClient="ngModel" [(ngModel)]="model.nameClient"
-          [ngClass]="{ 'is-invalid': f.submitted && nameClient.invalid }" required placeholder="Ingresar Nombre">
+          [ngClass]="{ 'is-invalid': f.submitted && nameClient.invalid }" required>
         <div *ngIf="f.submitted && nameClient.invalid" class="invalid-feedback">
           <div *ngIf="nameClient?.errors.required">El nombre es requerido</div>
         </div>
       </div>
       <div class="form-group">
-        <label class="phone" for="exampleCheck1">Teléfono</label>
+        <label class="phone" for="exampleCheck1">Teléfono : </label>
         <input type="number" class="form-control" name="phone" #phone="ngModel" minlength="7" maxlength="11"
           [(ngModel)]="model.phone" [ngClass]="{'is-invalid': f.submitted && phone.invalid }" required>
         <div *ngIf="f.submitted && phone.invalid" class="invalid-feedback">
@@ -21,7 +22,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="email">Correo Electronico</label>
+        <label for="email">Correo Electronico : </label>
         <input type="email" class="form-control" name="email" email #email="ngModel" [(ngModel)]="model.email"
           [ngClass]="{'is-invalid': f.submitted && email.invalid }" required>
         <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
@@ -30,7 +31,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="email">Fecha de Nacimiento</label>
+        <label for="email">Fecha de Nacimiento : </label>
         <input type="date" class="form-control" name="born" #born="ngModel" [(ngModel)]="model.born" [ngClass]="{'is-invalid': f.submitted && born.invalid }"
           required>
         <div *ngIf="f.submitted && born.invalid" class="invalid-feedback">
@@ -38,7 +39,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="genero">Género</label><br>
+        <label for="genero">Género : </label><br>
         <select class="form-control" name="gender" [ngClass]="{ 'is-invalid': f.submitted && gender.valid && model.gender == '0'}"
           [(ngModel)]="model.gender" #gender="ngModel" required>
           <option [ngValue]="'0'">Seleccionar</option>
@@ -49,13 +50,13 @@
           <label *ngIf="model.gender == '0'">Seleccionar su estado civil</label>
         </div>
       </div>
-      <div class="form-group">
-        <button [disabled]="!f.valid" class="btn btn-primary" type="submit" (click)="open(content)">
-          <i class="fas fa-plus-circle"></i> REGISTRARME
+      <div class="form-group text-center pt-3">
+        <button [disabled]="!f.valid" class="btn btnRegistro" type="submit" (click)="open(content)">
+          Registrarme
         </button>
         <ng-template #content let-modal>
           <div class="modal-header">
-            <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+            <h4 class="modal-title" id="modal-basic-title">Le damos la bienvenida a Inteligo</h4>
             <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -63,20 +64,23 @@
           <div class="modal-body">
             <form>
               <div class="form-group">
-                <label for="dateOfBirth">La informacion se le envió a su correo</label>
+                <label for="dateOfBirth">La información correspondiente se le envió a su correo</label>
               </div>
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-outline-dark" (click)="sendEmail()">Save</button>
+            <a (click)="modal.dismiss('Cross click')"><button type="button" class="btn btnRegistro" (click)="sendEmail()">Aceptar</button></a>
           </div>
         </ng-template>
         <!-- Necesito reseterar el servicio  -->
         <button class="btn btn-secondary ml-2" type="reset" (click)="resetForm()">
           <i class="fas fa-sync-alt"></i> Reset
         </button>
+
+
       </div>
     </form>
+
 
   </div>
 </div>

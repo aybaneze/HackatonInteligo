@@ -41,8 +41,7 @@ export class CorreoComponent implements OnInit {
   open(content) {
     this.modalRef = this.modalService.open(content, {
       windowClass: "",
-      ariaLabelledBy: "modal-basic-title",
-      size: "lg"
+      ariaLabelledBy: "modal-basic-title"
     });
     this.modalRef.result.then(
       result => {

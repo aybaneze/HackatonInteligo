@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { MandrilService } from 'src/app/services/mandril.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuario',
@@ -21,7 +22,7 @@ export class UsuarioComponent implements OnInit {
   @ViewChild('showResult') showResult: ElementRef;
 
   constructor(
-    public usuarioService: UsuarioService, private modalService: NgbModal, private madril: MandrilService) { }
+    public usuarioService: UsuarioService, private modalService: NgbModal, private madril: MandrilService, private _router: Router) { }
 
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
@@ -48,7 +49,6 @@ export class UsuarioComponent implements OnInit {
 
   }
 
-
   onSubmit() {
     console.log(this.model);
     this.usuarioService.insertUsuario(this.model);
@@ -56,8 +56,6 @@ export class UsuarioComponent implements OnInit {
       this.showResult.nativeElement;
     }, 400);
     this.email = this.model.email;
-       
-    
   }
 
    sendEmail() {
@@ -65,7 +63,7 @@ export class UsuarioComponent implements OnInit {
     this.data = {
       key: 'ZGiSDAUGJIgaCMIqm9ysPA',
       message: {
-        html: `<p style="color:black; font-size:16px">Zarela zanabria Este mensaje le ha sido enviado porque usted ha rellenado el
+        html: `<p style="color:black; font-size:16px">Este mensaje se le envió porque usted ha rellenado el
         cuestionario de la <strong>Bolsa de Valores de Inteligo</strong> para poder evaluar su perfil y portafolio.Adjunto archivo
         con detalle de su perfil y portafolio.<br></p>
         <p><strong>Bolsa de Valores Inteligo</strong><br>
@@ -90,20 +88,21 @@ export class UsuarioComponent implements OnInit {
         ],
         headers: {
           'Reply-To': "marycatty@laboratoria.la"
+        },
+        attachments: [
+        {
+            "type": "text/plain",
+            "name": "contrato.pdf",
+            "content": "ZXhhbXBsZSBmaWxl"
         }
+      ],
 
       }
     };
 
     this.madril.sendMadril(this.data).subscribe(result => {
       console.log(result);
-     
     });
-    
-  } 
-
-
-
-
-
+    this._router.navigate(['/conociendo-mi-perfil']);
+  }
 }

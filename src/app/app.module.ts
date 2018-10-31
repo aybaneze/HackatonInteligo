@@ -6,6 +6,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 
+/* ngx-webstorage */
+
 // graficos
 import { ChartsModule } from 'ng2-charts';
 

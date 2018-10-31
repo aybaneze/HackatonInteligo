@@ -1,0 +1,24 @@
+.navbar-nav .nav-item:last-child {
+  background-color: rgb(25, 62, 153);
+  color: white;
+}
+
+.navbar-nav .nav-item a {
+  padding: 15px;
+}
+
+.navbar-nav .nav-item:last-child a {
+  color: white;
+}
+
+.navbar-nav {
+  background-color: rgb(241, 241, 242)
+}
+
+.background {
+  background-image: url(../../../assets/images/trato.jpg);
+  height: 75vh;
+  width: 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
