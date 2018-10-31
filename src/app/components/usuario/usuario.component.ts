@@ -103,6 +103,6 @@ export class UsuarioComponent implements OnInit {
     this.madril.sendMadril(this.data).subscribe(result => {
       console.log(result);
     });
-    this._router.navigate(['home']);
+    this._router.navigate(['']);
   }
 }
