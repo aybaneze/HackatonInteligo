@@ -8,6 +8,7 @@ import {
 } from "@ng-bootstrap/ng-bootstrap";
 import { ViewEncapsulation } from "@angular/core";
 import { CuestionarioService } from "../services/cuestionario.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-cuestionario",
@@ -36,7 +37,8 @@ export class CuestionarioComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     private _cuestionario: CuestionarioService,
-    private _sessinSt: SessionStorageService
+    private _sessinSt: SessionStorageService,
+    private _router: Router
   ) {}
 
   ngOnInit() {
@@ -60,6 +62,7 @@ export class CuestionarioComponent implements OnInit {
   }
 
   private getDismissReason(reason: any): string {
+    
     if (reason === ModalDismissReasons.ESC) {
       return "by pressing ESC";
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
@@ -81,7 +84,7 @@ export class CuestionarioComponent implements OnInit {
     }
     this.perfil(this.totalGrupo1, this.totalGrupo2);
     this._sessinSt.store('showResult', 'true');
-    this.modalRef.close();
+    // this.modalRef.close();
     this.showModalResult = true;
   }
 

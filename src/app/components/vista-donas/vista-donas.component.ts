@@ -11,10 +11,10 @@ export class VistaDonasComponent implements OnInit {
 
   profile: string;
 
-  constructor( { }
+  constructor( ) { }
 
   ngOnInit() {
-    
+
   }
 
 

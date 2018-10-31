@@ -1,56 +1,52 @@
-<ng-template #content let-modal>
-  <div class="modal-header p-4">
-    <h4 class="modal-title text-primary" id="modal-basic-title">Cuestionario Perfilador</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body p-4">
-    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate >
-      <div class="preguntas">
-        <ng-container *ngFor="let item of preguntas">
-          <div *ngIf="item.id == [(number)]">
-            <h5 class="text-center">{{ item.id }} / {{ preguntas.length }}</h5>
-            <h4>{{ item.pregunta }}</h4>
-            <div>
-              <p>Elige una opción</p>
-              <div class="alternativas">
-                <div class="d-flex justify-content-center align-items-center" *ngIf="item.img !== undefined">
-                  <img src="./assets/images/{{item.img}}" class="images">
-                </div>
-                <div class="custom-control custom-radio" *ngFor="let alternativa of item.alternativas">
-                  <input
-                    type="radio"
-                    [name] ="item.id"
-                    [(ngModel)]="model[item.id]"
-                    [id]="alternativa.idAlternativa"
-                    [value] = "alternativa.puntaje"
-                    (change) ="radioChangeOne($event)"
-                    ngModel [ngModelOptions]="{updateOn: 'change'}"
-                    #{{item.id}}="ngModel"
-                    [ngClass]="{ 'is-invalid': f.submitted && item.id.invalid }"
-                    required
-                    class="custom-control-input"
-                    [attr.data-puntaje]="alternativa.puntaje"
-                    [attr.data-idPregunta]="item.id"
-                    [attr.data-grupo]="item.grupo"
-                  >
-                  <label class="custom-control-label" [for]="alternativa.idAlternativa">{{ alternativa.detalle }}</label>
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-7 m-auto">
+      <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate >
+        <div class="preguntas mt-5" class="border-pregunta">
+          <ng-container *ngFor="let item of preguntas">
+            <div *ngIf="item.id == [(number)]">
+              <h5 class="text-primary">{{ item.id }} / {{ preguntas.length }} {{ item.pregunta }}</h5>
+              <div>
+                <p>Elige una opción</p>
+                <div class="alternativas">
+                  <div class="d-flex justify-content-center align-items-center" *ngIf="item.img !== undefined">
+                    <img src="./assets/images/{{item.img}}" class="images">
+                  </div>
+                  <div class="custom-control custom-radio" *ngFor="let alternativa of item.alternativas">
+                    <input
+                      type="radio"
+                      [name] ="item.id"
+                      [(ngModel)]="model[item.id]"
+                      [id]="alternativa.idAlternativa"
+                      [value] = "alternativa.puntaje"
+                      (change) ="radioChangeOne($event)"
+                      ngModel [ngModelOptions]="{updateOn: 'change'}"
+                      #{{item.id}}="ngModel"
+                      [ngClass]="{ 'is-invalid': f.submitted && item.id.invalid }"
+                      required
+                      class="custom-control-input"
+                      [attr.data-puntaje]="alternativa.puntaje"
+                      [attr.data-idPregunta]="item.id"
+                      [attr.data-grupo]="item.grupo"
+                    >
+                    <label class="custom-control-label" [for]="alternativa.idAlternativa">{{ alternativa.detalle }}</label>
 
+                  </div>
                 </div>
-              </div>
-              <div class="d-flex justify-content-end">
-                <button class="btn btn-secondary mt-3" (click)="siguiente()" *ngIf="showButton">Siguiente</button>
+                <div class="d-flex justify-content-end">
+                  <button class="btn bg-info text-white mt-3" (click)="siguiente()" *ngIf="showButton">Siguiente</button>
+                </div>
               </div>
             </div>
-          </div>
-        </ng-container>
-      </div>
-      <div class="text-center">
-        <button class="btn btn-primary mt-3 mb-3" *ngIf="showButtonFinalize">finalizar</button>
-      </div>
-    </form>
+          </ng-container>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-primary mt-3 mb-3" *ngIf="showButtonFinalize">finalizar</button>
+        </div>
+      </form>
+    </div>
   </div>
-</ng-template>
-<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Conocer mi perfil</button>
+</div>
+
 <app-correo *ngIf="showModalResult"></app-correo>
