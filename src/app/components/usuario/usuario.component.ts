@@ -24,6 +24,7 @@ export class UsuarioComponent implements OnInit {
     
       this.usuarioService.insertUsuario(usuarioForm.value);
       this.resetForm(usuarioForm);
+      alert('Hola');
    
   }
 
