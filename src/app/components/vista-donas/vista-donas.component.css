@@ -39,6 +39,7 @@ section {
     margin: 60px;
     font-size: 22px;
     border: #0b1d75;
+    cursor: pointer;
 }
 
 .bp-divBtnRegistrarme {

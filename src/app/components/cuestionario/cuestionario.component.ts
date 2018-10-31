@@ -59,6 +59,7 @@ export class CuestionarioComponent implements OnInit {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
       }
     );
+    
   }
 
   private getDismissReason(reason: any): string {

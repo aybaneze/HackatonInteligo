@@ -10,7 +10,9 @@
           <p>{{profile | uppercase}}</p>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Retorno promedio anual esperado <sup>1</sup> <p class="bp-result">{{casa}}</p> </li>
+          <li class="list-group-item">Retorno promedio anual esperado <sup>1</sup>
+            <p class="bp-result">{{casa}}</p>
+          </li>
           <li class="list-group-item">Mejor año <sup>2</sup> </li>
           <li class="list-group-item">Peor Año <sup>2</sup></li>
           <li class="list-group-item">Para inversionistas de largo plazo que buscan crecimiento moderado en su
@@ -32,8 +34,11 @@
       </div>
     </div>
   </div>
-  <div class="bp-divBtnRegistrarme text-center">
-    <p>< Cambiar mi respuesta</p>
-      <a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Registrarme</a>
+
+  <div class="bp-divBtnRegistrarme text-center d-flex justify-content-center">
+    <!-- <button class="btn btn-primary btn-lg" (click)="vistaRegistro()">Registro</button> -->
+    <!-- <a href="#" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true" (click)="vistaRegistro()" >Registrarme</a> -->
+      <a [routerLink]="['/conociendo-mi-perfil']">< Cambiar mi respuesta</a>
+      <button class="btn btn-primary btn-lg disabled" (click)="vistaRegistro()">Registrarme</button>
   </div>
 </section>
