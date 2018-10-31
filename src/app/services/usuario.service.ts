@@ -15,24 +15,24 @@ export class UsuarioService {
   //Permite Registrar en la base de datos
   constructor(private firebase : AngularFireDatabase) { }
   //Metodos para obtener los datos de la base de datos de Firebase
-  getTareas() {//Asignarle la lista de elementeos y toda la lista esta alamcenada en tareas
+  getUsuario() {//Asignarle la lista de elementeos y toda la lista esta alamcenada en tareas
     return this.usuarioList = this.firebase.list('Usuarios');
   }
   //Vamos a utilizar un parametro Tarea que sera de clase Usuario 
-  insertTarea(usuario : Usuario){
+  insertUsuario(usuario : Usuario){
+    if (usuario.email !== '') { 
     //Agregamos Datos a la Lista con este tenemos la Tarea que vamos a insertar
     this.usuarioList.push({
-      descripcion: usuario.name
+      descripcion: usuario.name,
+      phone:usuario.phone,
+      email: usuario.email,
+      gender : usuario.gender,
+      born : usuario.born,
     });
   }
-  updateTarea (usuario : Usuario){
-    this.usuarioList.update(usuario.$key,{
-      descripcion: usuario.name
-    });
-
-  }
-  deleteTarea($key : string){
-    this.usuarioList.remove($key);
-
-  }
+else{
+  alert("hola")
 }
+
+ 
+}}

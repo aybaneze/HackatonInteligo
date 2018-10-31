@@ -1,34 +1,3 @@
-<!-- <div class="container">
-    <div class="row formUser">  
-      <form #usuarioForm="ngForm" >
-        <div class="form-group">
-          <label for="name">Nombres y Apellidos</label>
-          <input type="name" class="form-control" >
-        </div>
-        <div class="form-group">
-          <label for="Fecha">Fecha de Nacimiento</label>
-          <input type="date" class="form-control" id="Fecha" placeholder="Password" required>
-        </div>
-        <div class="form-group">
-            <label for="genero">Género</label><br>
-            <select id="genero">
-                <option>Femenino</option>
-                <option>Masculino</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="phone" for="exampleCheck1">Teléfono</label>
-            <input type="number" class="form-control" id="phone">
-        </div>
-        <div class="form-group">
-            <label for="email">Correo Electronico</label>
-            <input type="email" class="form-control" id="email" required>
-        </div>
-        <button type="submit" class="btn btn-primary">REGISTRARME</button>
-      </form>
-    </div>
-</div> -->
-
 <div class="card mt-5">
     <div class="card-body">
       <!-- Tengo problemas al cargar el formulario -->
@@ -40,8 +9,28 @@
             placeholder="Agregar Tarea">
         </div>
         <div class="form-group">
+            <label class="phone" for="exampleCheck1" >Teléfono</label>
+            <input type="number" class="form-control" name="phone" #phone="ngModel"  [(ngModel)]="usuarioService.selectedUsuario.phone">
+        </div>
+        <div class="form-group">
+            <label for="email">Correo Electronico</label>
+            <input type="email" class="form-control" name="email" #email="ngModel" [(ngModel)]="usuarioService.selectedUsuario.email" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Fecha de Nacimiento</label>
+            <input type="date" class="form-control" name="born" #born="ngModel" [(ngModel)]="usuarioService.selectedUsuario.born" required>
+        </div>
+        <div class="form-group">
+            <label for="genero">Género</label><br>
+            <select id="genero" name="gender" #gender="ngModel" [(ngModel)]="usuarioService.selectedUsuario.gender">
+                <option>Femenino</option>
+                <option>Masculino</option>
+            </select>
+        </div>
+
+        <div class="form-group">
           <button class="btn btn-primary" type="submit">
-            <i class="fas fa-plus-circle"></i> Agregar Nueva Tarea
+            <i class="fas fa-plus-circle"></i> REGISTRARME
           </button>
           <!-- Necesito reseterar el servicio  -->
           <button class="btn btn-secondary" type="reset" (click)="resetForm(usuarioForm)">
@@ -50,6 +39,5 @@
         </div>
       </form>
     </div>
-  
   </div>
 

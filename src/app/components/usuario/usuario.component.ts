@@ -14,23 +14,17 @@ export class UsuarioComponent implements OnInit {
     public usuarioService: UsuarioService  ) { }
   ngOnInit() {
     //Me trae todo el arreglo de datos
-    this.usuarioService.getTareas();
+    this.usuarioService.getUsuario();
     this.resetForm();
 
   }
   /*Agregar el metodo para que sea utilizado en el html
   para poder agregar una nueva tarea */
   onSubmit(usuarioForm: NgForm) {
-    if (usuarioForm.value.$key == null) {
-      this.usuarioService.insertTarea(usuarioForm.value);
+    
+      this.usuarioService.insertUsuario(usuarioForm.value);
       this.resetForm(usuarioForm);
-    }
-    else {
-      this.usuarioService.updateTarea(usuarioForm.value);
-      this.resetForm(usuarioForm);
- 
-    }
-
+   
   }
 
   /*Resetear el formulario cuando resivimos el formulario dera de tipo NgForm
