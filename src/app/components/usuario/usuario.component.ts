@@ -56,8 +56,8 @@ export class UsuarioComponent implements OnInit {
       this.showResult.nativeElement;
     }, 400);
     this.email = this.model.email;
-       
-    
+
+
   }
 
    sendEmail() {
@@ -97,10 +97,10 @@ export class UsuarioComponent implements OnInit {
 
     this.madril.sendMadril(this.data).subscribe(result => {
       console.log(result);
-     
+
     });
-    
-  } 
+
+  }
 
 
 
