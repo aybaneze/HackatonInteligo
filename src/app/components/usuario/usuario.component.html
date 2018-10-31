@@ -1,31 +1,91 @@
 <div class="card mt-5">
     <div class="card-body">
       <!-- Tengo problemas al cargar el formulario -->
-      <form #usuarioForm="ngForm" (ngSubmit)="onSubmit(usuarioForm)">
+      <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
         <!-- Agregamos un campo oculto para poder actualizar la Tarea -->
       <!--   <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="usuarioService.selectedUsuario.$key"> -->
         <div class="form-group">
-          <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="usuarioService.selectedUsuario.name"
+          <label for="email">Fecha de Nacimiento</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nameClient"
+            #nameClient="ngModel"
+            [(ngModel)]="model.nameClient"
+            [ngClass]="{ 'is-invalid': f.submitted && nameClient.invalid }"
+            required
             placeholder="Ingresar Nombre">
+            <div *ngIf="f.submitted && nameClient.invalid" class="invalid-feedback">
+              <div *ngIf="nameClient?.errors.required">El nombre es requerido</div>
+          </div>
         </div>
         <div class="form-group">
             <label class="phone" for="exampleCheck1" >Teléfono</label>
-            <input type="number" class="form-control" name="phone" #phone="ngModel"  [(ngModel)]="usuarioService.selectedUsuario.phone">
+            <input
+              type="number"
+              class="form-control"
+              name="phone"
+              #phone="ngModel"
+              minlength="7"
+              maxlength="11"
+              [(ngModel)]="model.phone"
+              [ngClass]="{'is-invalid': f.submitted && phone.invalid }"
+              required
+            >
+            <div *ngIf="f.submitted && phone.invalid" class="invalid-feedback">
+              <div *ngIf="phone?.errors.required">El teléfono es requerido</div>
+              <div *ngIf="phone?.errors.minlength">El mínimo es 7</div>
+          </div>
         </div>
         <div class="form-group">
             <label for="email">Correo Electronico</label>
-            <input type="email" class="form-control" name="email" #email="ngModel" [(ngModel)]="usuarioService.selectedUsuario.email" required>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              email
+              #email="ngModel"
+              [(ngModel)]="model.email"
+              [ngClass]="{'is-invalid': f.submitted && email.invalid }"
+              required
+            >
+            <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+              <div *ngIf="email?.errors.required">Su email es requerido</div>
+              <div *ngIf="email?.errors.email">Email incorrecto</div>
+            </div>
         </div>
         <div class="form-group">
             <label for="email">Fecha de Nacimiento</label>
-            <input type="date" class="form-control" name="born" #born="ngModel" [(ngModel)]="usuarioService.selectedUsuario.born" required>
+            <input
+              type="date"
+              class="form-control"
+              name="born"
+              #born="ngModel"
+              [(ngModel)]="model.born"
+              [ngClass]="{'is-invalid': f.submitted && born.invalid }"
+              required
+            >
+            <div *ngIf="f.submitted && born.invalid" class="invalid-feedback">
+              <div *ngIf="born?.errors.required">Ingrese fecha de registro</div>
+            </div>
         </div>
         <div class="form-group">
             <label for="genero">Género</label><br>
-            <select id="genero" name="gender" #gender="ngModel" [(ngModel)]="usuarioService.selectedUsuario.gender">
-                <option>Femenino</option>
-                <option>Masculino</option>
+            <select
+              class="form-control"
+              name="gender"
+              [ngClass]="{ 'is-invalid': f.submitted && gender.valid && model.gender == '0'}"
+              [(ngModel)]="model.gender"
+              #gender="ngModel"
+              required
+            >
+              <option [ngValue]="'0'">Seleccionar</option>
+              <option [ngValue]="'Femenimo'">Femenino</option>
+              <option [ngValue]="'Masculino'">Masculino</option>
             </select>
+            <div *ngIf="f.submitted && gender.valid || model.gender == '0'" class="invalid-feedback m-0">
+              <label *ngIf="model.gender == '0'">Seleccionar su estado civil</label>
+            </div>
         </div>
 
         <div class="form-group">
@@ -33,11 +93,12 @@
             <i class="fas fa-plus-circle"></i> REGISTRARME
           </button>
           <!-- Necesito reseterar el servicio  -->
-          <button class="btn btn-secondary" type="reset" (click)="resetForm(usuarioForm)">
+          <button class="btn btn-secondary ml-2" type="reset" (click)="resetForm()">
             <i class="fas fa-sync-alt"></i> Reset
           </button>
         </div>
       </form>
+      
     </div>
   </div>
 

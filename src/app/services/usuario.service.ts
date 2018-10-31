@@ -6,11 +6,11 @@ import { Usuario } from '../model/usuario';
   providedIn: 'root'
 })
 export class UsuarioService {
- 
+
   //Any tipo de dato que trae desde Firebase
   usuarioList : AngularFireList<any>;
 
-  //Creamos un Tarea en donde no vamos a seleecionar nada 
+  //Creamos un Tarea en donde no vamos a seleecionar nada
   selectedUsuario : Usuario = new Usuario();
   //Permite Registrar en la base de datos
   constructor(private firebase : AngularFireDatabase) { }
@@ -18,13 +18,13 @@ export class UsuarioService {
   getUsuario() {//Asignarle la lista de elementeos y toda la lista esta alamcenada en tareas
     return this.usuarioList = this.firebase.list('Usuarios');
   }
-  //Vamos a utilizar un parametro Tarea que sera de clase Usuario 
-  insertUsuario(usuario : Usuario){
-    if (usuario.email !== '') { 
+  //Vamos a utilizar un parametro Tarea que sera de clase Usuario
+  insertUsuario(usuario){
+    if (usuario.email !== '') {
     //Agregamos Datos a la Lista con este tenemos la Tarea que vamos a insertar
     this.usuarioList.push({
-      descripcion: usuario.name,
-      phone:usuario.phone,
+      descripcion: usuario.nameClient,
+      phone: usuario.phone,
       email: usuario.email,
       gender : usuario.gender,
       born : usuario.born,
@@ -34,5 +34,5 @@ else{
   alert("hola")
 }
 
- 
+
 }}

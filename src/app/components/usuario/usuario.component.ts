@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { NgForm } from '@angular/forms';
 import { Usuario } from 'src/app/model/usuario';
 
 @Component({
@@ -10,22 +9,25 @@ import { Usuario } from 'src/app/model/usuario';
 })
 export class UsuarioComponent implements OnInit {
 
+  model: any = {};
+
   constructor(
     public usuarioService: UsuarioService  ) { }
-  ngOnInit() {
-    //Me trae todo el arreglo de datos
-    this.usuarioService.getUsuario();
-    this.resetForm();
 
-  }
+    ngOnInit() {
+      // Me trae todo el arreglo de datos
+      this.usuarioService.getUsuario();
+      this.resetForm();
+      this.model.gender = '0';
+
+    }
   /*Agregar el metodo para que sea utilizado en el html
   para poder agregar una nueva tarea */
-  onSubmit(usuarioForm: NgForm) {
-    
-      this.usuarioService.insertUsuario(usuarioForm.value);
-      this.resetForm(usuarioForm);
+  onSubmit() {
+      console.log(this.model);
+      this.usuarioService.insertUsuario(this.model);
+      //this.resetForm(usuarioForm);
       alert('Hola');
-   
   }
 
   /*Resetear el formulario cuando resivimos el formulario dera de tipo NgForm
@@ -34,7 +36,6 @@ export class UsuarioComponent implements OnInit {
     if (usuarioForm != null) {
       usuarioForm.reset();
       this.usuarioService.selectedUsuario = new Usuario;
-
     }
   }
 
