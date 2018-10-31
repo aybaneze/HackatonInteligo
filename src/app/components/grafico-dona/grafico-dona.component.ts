@@ -12,6 +12,8 @@ export class GraficoDonaComponent implements OnInit{
   doughnutChartLabels: string[];
   doughnutChartData: number[];
   doughnutChartType: string = "doughnut";
+  doughnutChartLegend:boolean = true;
+  doughnutChartOptions;
 
   constructor(private _session: SessionStorageService) {}
 
@@ -19,6 +21,18 @@ export class GraficoDonaComponent implements OnInit{
     this.profile = this._session.retrieve('profile');
     console.log(this.profile);
     this.mostrarData();
+    this.doughnutChartOptions= {
+      responsive:true,
+      legend:{
+        display:true,
+        position: "bottom",
+        labels:{
+          fontSize: 17,
+          boxWidth: 20,
+        }
+      }
+
+    }
   }
   // events
   public chartClicked(e: any): void {

@@ -26,6 +26,7 @@ import { CorreoComponent } from './components/correo/correo.component';
 import { APP_ROUTING } from './app.routes';
 import { VistaDonasComponent } from './components/vista-donas/vista-donas.component';
 import { HeaderComponent } from './components/shared/header/header.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { HeaderComponent } from './components/shared/header/header.component';
     GraficoDonaComponent,
     UsuarioComponent,
     VistaDonasComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
