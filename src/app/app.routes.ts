@@ -3,7 +3,7 @@ import { CuestionarioComponent } from './components/cuestionario/cuestionario.co
 import { VistaDonasComponent } from './components/vista-donas/vista-donas.component';
 
 const APP_ROUTES: Routes = [
-  { path: '', component: CuestionarioComponent },
+{ path: 'conociendo-mi-perfil', component: CuestionarioComponent },
   { path: 'mi-perfil', component: VistaDonasComponent }
 ];
 
