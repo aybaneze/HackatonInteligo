@@ -5,14 +5,14 @@
 <section>
   <div class="bp-SubSection">
     <div class="bp-boxInformation ">
-      <div class="card" style="width: 25rem;">
+      <div class="card" style="width: 23rem;">
         <div class="card-header text-center">
           <p>{{profile | uppercase}}</p>
         </div>
         <ul class="list-group list-group-flush" *ngFor="let item of data">
-          <li class="list-group-item">Retorno promedio anual esperado<sup>1</sup> <p class="bp-result">{{item.promedioAnual}}</p> </li>
-          <li class="list-group-item">Mejor año<sup>2</sup> <p> {{item.mejorAnio}}</p> </li>
-          <li class="list-group-item">Peor Año<sup>2</sup> <p>{{item.peorAnio}}</p> </li>
+          <li class="list-group-item">Retorno promedio anual esperado¹<p>{{item.promedioAnual}}</p> </li>
+          <li class="list-group-item">Mejor año²<p> {{item.mejorAnio}}</p> </li>
+          <li class="list-group-item">Peor Año²<p>{{item.peorAnio}}</p> </li>
           <li class="list-group-item"> <p class="text-justify">{{item.speech}}</p> </li>
         </ul>
       </div>

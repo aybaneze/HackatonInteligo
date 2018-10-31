@@ -27,8 +27,8 @@ export class GraficoDonaComponent implements OnInit{
         display:true,
         position: "bottom",
         labels:{
-          fontSize: 17,
-          boxWidth: 20,
+          fontSize: 13,
+          boxWidth: 70,
         }
       }
 
