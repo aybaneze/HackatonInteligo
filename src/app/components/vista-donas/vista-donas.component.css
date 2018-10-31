@@ -5,7 +5,7 @@
 
 .navbar img{
     margin-left: 30px;
-} 
+}
 
 .bp-SubNav{
     height: 45px;
@@ -16,13 +16,13 @@
 .bp-SubNav p{
     color :  #0b1d75;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-left: 92px;
+    margin-left: 35px;
     padding-top: 8px;
     size: 22px;
 }
 
 .bp-textTitle{
-    margin-left: 80px;
+    align-items: center;
     margin-top: 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size : 30px;
@@ -36,17 +36,18 @@ section {
 .bp-SubSection {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     border-bottom: gray;
 }
 
 .bp-boxInformation, .bp-boxDona {
     display: flex;
+    align-items: baseline;
     flex: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 120px;
+    margin-top: 80px;
     margin-left: 50px;
     margin-right: 50px;
 }
@@ -62,9 +63,6 @@ section {
     font-weight: bolder;
 }
 
-img {
-    width: 300px;
-}
 .btn {
     background: #0b1d75;
     opacity: 1;
@@ -72,4 +70,10 @@ img {
     margin: 60px;
     font-size: 22px;
     border: #0b1d75;
+}
+
+.bp-divBtnRegistrarme {
+    display: flex;
+    align-items: baseline;
+    color: #0b1d75;
 }
