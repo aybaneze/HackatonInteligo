@@ -1,0 +1,55 @@
+<!-- <div class="container">
+    <div class="row formUser">  
+      <form #usuarioForm="ngForm" >
+        <div class="form-group">
+          <label for="name">Nombres y Apellidos</label>
+          <input type="name" class="form-control" >
+        </div>
+        <div class="form-group">
+          <label for="Fecha">Fecha de Nacimiento</label>
+          <input type="date" class="form-control" id="Fecha" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+            <label for="genero">Género</label><br>
+            <select id="genero">
+                <option>Femenino</option>
+                <option>Masculino</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="phone" for="exampleCheck1">Teléfono</label>
+            <input type="number" class="form-control" id="phone">
+        </div>
+        <div class="form-group">
+            <label for="email">Correo Electronico</label>
+            <input type="email" class="form-control" id="email" required>
+        </div>
+        <button type="submit" class="btn btn-primary">REGISTRARME</button>
+      </form>
+    </div>
+</div> -->
+
+<div class="card mt-5">
+    <div class="card-body">
+      <!-- Tengo problemas al cargar el formulario -->
+      <form #usuarioForm="ngForm" (ngSubmit)="onSubmit(usuarioForm)">
+        <!-- Agregamos un campo oculto para poder actualizar la Tarea -->
+      <!--   <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="usuarioService.selectedUsuario.$key"> -->
+        <div class="form-group">
+          <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="usuarioService.selectedUsuario.name"
+            placeholder="Agregar Tarea">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" type="submit">
+            <i class="fas fa-plus-circle"></i> Agregar Nueva Tarea
+          </button>
+          <!-- Necesito reseterar el servicio  -->
+          <button class="btn btn-secondary" type="reset" (click)="resetForm(usuarioForm)">
+            <i class="fas fa-sync-alt"></i> Reset
+          </button>
+        </div>
+      </form>
+    </div>
+  
+  </div>
+
