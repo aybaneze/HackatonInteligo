@@ -12,31 +12,31 @@ export class UsuarioComponent implements OnInit {
   model: any = {};
 
   constructor(
-    public usuarioService: UsuarioService  ) { }
+    public usuarioService: UsuarioService) { }
 
-    ngOnInit() {
-      // Me trae todo el arreglo de datos
-      this.usuarioService.getUsuario();
-      this.resetForm(this.model);
-      this.model.gender = '0';
+  ngOnInit() {
+    // Me trae todo el arreglo de datos
+    this.usuarioService.getUsuario();
+    /* this.resetForm(this.model); */
+    this.model.gender = '0';
 
-    }
+  }
   /*Agregar el metodo para que sea utilizado en el html
   para poder agregar una nueva tarea */
   onSubmit() {
-      console.log(this.model);
-      this.usuarioService.insertUsuario(this.model);
-      // this.resetForm(usuarioForm);
-      alert('Hola');
+    console.log(this.model);
+    this.usuarioService.insertUsuario(this.model);
+    // this.resetForm(usuarioForm);
+    alert('Hola');
   }
 
   /*Resetear el formulario cuando resivimos el formulario dera de tipo NgForm
       ? siginifica que es opcional */
-  resetForm(usuarioForm) {
-    if (usuarioForm != null) {
-      usuarioForm.reset();
+ /*  resetForm() {
+    if (this.model != null) {
+      this.model.reset();
       this.usuarioService.selectedUsuario = new Usuario;
     }
-  }
+  } */
 
 }
