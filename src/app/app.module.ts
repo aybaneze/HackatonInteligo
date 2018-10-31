@@ -4,9 +4,8 @@ import { FormsModule } from '@angular/forms';
 // IMPORTANDO PAQUETE PARA PDF
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
-import {NgxWebstorageModule} from 'ngx-webstorage';
 
-//graficos
+// graficos
 import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
@@ -36,8 +35,8 @@ import { CorreoComponent } from './components/correo/correo.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     FormsModule,
-    NgxWebstorageModule.forRoot(),
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [
     UsuarioService,

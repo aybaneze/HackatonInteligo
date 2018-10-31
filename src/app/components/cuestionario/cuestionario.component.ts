@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 import { ViewEncapsulation } from "@angular/core";
 import { CuestionarioService } from "../services/cuestionario.service";
-import { SessionStorageService } from "ngx-webstorage";
+
 
 @Component({
   selector: "app-cuestionario",
@@ -26,8 +26,7 @@ export class CuestionarioComponent implements OnInit {
   profile: string;
   constructor(
     private modalService: NgbModal,
-    private _cuestionario: CuestionarioService,
-    private session: SessionStorageService
+    private _cuestionario: CuestionarioService
   ) {}
 
   ngOnInit() {

@@ -17,7 +17,7 @@ export class UsuarioComponent implements OnInit {
     ngOnInit() {
       // Me trae todo el arreglo de datos
       this.usuarioService.getUsuario();
-      this.resetForm();
+      this.resetForm(this.model);
       this.model.gender = '0';
 
     }
@@ -26,13 +26,13 @@ export class UsuarioComponent implements OnInit {
   onSubmit() {
       console.log(this.model);
       this.usuarioService.insertUsuario(this.model);
-      //this.resetForm(usuarioForm);
+      // this.resetForm(usuarioForm);
       alert('Hola');
   }
 
   /*Resetear el formulario cuando resivimos el formulario dera de tipo NgForm
       ? siginifica que es opcional */
-  resetForm(usuarioForm?: NgForm) {
+  resetForm(usuarioForm) {
     if (usuarioForm != null) {
       usuarioForm.reset();
       this.usuarioService.selectedUsuario = new Usuario;
