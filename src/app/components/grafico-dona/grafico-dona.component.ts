@@ -9,8 +9,8 @@ import { SessionStorageService } from "ngx-webstorage";
 export class GraficoDonaComponent implements OnInit{
   // Doughnut
   profile: string;
-  doughnutChartLabels: string[] = ["a ", "b", "c"];
-  doughnutChartData: number[] = [60, 20, 40];
+  doughnutChartLabels: string[];
+  doughnutChartData: number[];
   doughnutChartType: string = "doughnut";
 
   constructor(private _session: SessionStorageService) {}
@@ -18,6 +18,7 @@ export class GraficoDonaComponent implements OnInit{
   ngOnInit() {
     this.profile = this._session.retrieve('profile');
     console.log(this.profile);
+    this.mostrarData();
   }
   // events
   public chartClicked(e: any): void {
@@ -29,6 +30,25 @@ export class GraficoDonaComponent implements OnInit{
   }
 
   mostrarData() {
-
-  }0
+    if(this.profile === 'Defensivo'){
+      this.doughnutChartLabels = ["Caja y Equivalentes", "Renta Fija", "Renta Variable", "Renta Alternativa"];
+      this.doughnutChartData = [100,0,0,0];
+    }
+    else if(this.profile === 'Altamente Conservador'){
+      this.doughnutChartLabels = ["Caja y Equivalentes", "Renta Fija", "Renta Variable", "Renta Alternativa"];
+      this.doughnutChartData = [40,60,0,0]
+    }
+    else if(this.profile === 'Conservador'){
+      this.doughnutChartLabels = ["Caja y Equivalentes", "Renta Fija", "Renta Variable", "Renta Alternativa"];
+      this.doughnutChartData = [10,73,12,5]
+    }
+    else if(this.profile === 'Moderado'){
+      this.doughnutChartLabels = ["Caja y Equivalentes", "Renta Fija", "Renta Variable", "Renta Alternativa"];
+      this.doughnutChartData = [5,48,35,12]
+    }
+    else if(this.profile === 'Agresivo'){
+      this.doughnutChartLabels = ["Caja y Equivalentes", "Renta Fija", "Renta Variable", "Renta Alternativa"];
+      this.doughnutChartData = [2,28,50,20]
+    }
+  }
 }

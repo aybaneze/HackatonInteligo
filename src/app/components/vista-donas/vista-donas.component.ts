@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionStorageService } from "ngx-webstorage";
+
 
 
 @Component ({
@@ -11,13 +13,11 @@ export class VistaDonasComponent implements OnInit {
 
   profile: string;
 
-  constructor( ) { }
+  constructor(private _sesion: SessionStorageService) { }
 
   ngOnInit() {
-
+    this.profile = this._sesion.retrieve('profile');
   }
-
-
 
 }
 
