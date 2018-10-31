@@ -30,4 +30,6 @@ import { environment } from 'src/environments/environment';
   providers: [UsuarioService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+ }
