@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { SessionStorageService, LocalStorageService} from 'ngx-webstorage';
+import { SessionStorageService } from 'ngx-webstorage';
 
 import {
   NgbModal,
@@ -141,7 +141,7 @@ export class CuestionarioComponent implements OnInit {
     } else if (total1 === 29 || total1 === 31) {
       this.profile = total2 >= 14 && total2 <= 20 ? "Moderado" : "Agresivo";
     }
-
+    this._sessinSt.store('profile', this.profile);
     console.log(this.profile);
   }
 }

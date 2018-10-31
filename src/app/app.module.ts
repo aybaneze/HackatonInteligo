@@ -24,6 +24,7 @@ import { CorreoComponent } from './components/correo/correo.component';
 
 
 import { APP_ROUTING } from './app.routes';
+import { VistaDonasComponent } from './components/vista-donas/vista-donas.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { APP_ROUTING } from './app.routes';
     CorreoComponent,
     CuestionarioComponent,
     GraficoDonaComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    VistaDonasComponent
   ],
   imports: [
     BrowserModule,
