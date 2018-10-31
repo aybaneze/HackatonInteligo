@@ -14,9 +14,10 @@ export class VistaDonasComponent implements OnInit {
 
   ngOnInit() { }
 
-  vistaRegistro(){
-    this._router.navigate(['/registro']);
+  vistaRegistro(){   
 
+    this._router.navigate(['/registro']);
+    
   }
 
 }
