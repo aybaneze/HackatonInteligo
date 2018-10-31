@@ -7,6 +7,7 @@ import {
   ModalDismissReasons,
   NgbModalRef
 } from "@ng-bootstrap/ng-bootstrap";
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -21,8 +22,6 @@ export class CorreoComponent implements OnInit {
   data: any = null;
   closeResult: string;
   name: string = 'Inteligo SAB';
-  private modalRef: NgbModalRef;
-
   show: string;
 
   @ViewChild('showResult') showResult: ElementRef;

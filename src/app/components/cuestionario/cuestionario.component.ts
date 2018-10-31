@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { SessionStorageService } from 'ngx-webstorage';
 
 import {
@@ -20,7 +20,7 @@ export class CuestionarioComponent implements OnInit {
   closeResult: string;
   preguntas = null;
   number = 1;
-  puntaje: number;
+  puntaje: number = null;
   grupo: string;
   idPregunta: number;
   totalGrupo1 = 0;
@@ -31,9 +31,10 @@ export class CuestionarioComponent implements OnInit {
   showButtonFinalize: Boolean = false;
   profile: string;
   showModalResult;
-
+  showError: Boolean = false;
   private modalRef: NgbModalRef;
-
+  @ViewChild('warning') warning: ElementRef;
+  //
   constructor(
     private modalService: NgbModal,
     private _cuestionario: CuestionarioService,
@@ -59,10 +60,11 @@ export class CuestionarioComponent implements OnInit {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
       }
     );
+
   }
 
   private getDismissReason(reason: any): string {
-    
+
     if (reason === ModalDismissReasons.ESC) {
       return "by pressing ESC";
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
@@ -72,7 +74,25 @@ export class CuestionarioComponent implements OnInit {
     }
   }
 
+  validateRadioButton() {
+    console.log('validate');
+    if (this.puntaje == null) {
+      console.log('no hay');
+      this.showError = true;
+      setTimeout(() => {
+        this.showError = false;
+      }, 3000);
+    } else if (this.puntaje !== null) {
+      console.log(this.puntaje);
+      this.number++;
+      this.showError = false;
+      this.puntaje = null;
+    }
+  }
+
   onSubmit() {
+    this.validateRadioButton();
+
     const keys = Object.keys(this.model);
     for (let index = 0; index < keys.length; index++) {
       const element = +keys[index];
@@ -89,17 +109,24 @@ export class CuestionarioComponent implements OnInit {
   }
 
   siguiente() {
-    this.number++;
+    console.log(this.showError);
+    console.log(this.puntaje);
+    this.validateRadioButton();
+
     if (this.number === 1) {
       this.showButton = true;
     } else if (this.number === 8) {
       this.showButton = false;
       this.showButtonFinalize = true;
     }
+
+
   }
 
   radioChangeOne(event) {
-    // this.puntaje = event.target.getAttribute("data-puntaje");
+    this.showError = false;
+    this.puntaje = event.target.getAttribute("data-puntaje");
+    console.log(this.puntaje);
     // this.grupo = event.target.getAttribute("data-grupo");
     // this.idPregunta = event.target.getAttribute("data-idPregunta");
     // this.showButton = true;

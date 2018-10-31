@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-7 m-auto">
-      <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate >
+      <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
         <div class="preguntas mt-5" class="border-pregunta">
           <ng-container *ngFor="let item of preguntas">
             <div *ngIf="item.id == [(number)]">
@@ -14,36 +14,32 @@
                     <img src="./assets/images/{{item.img}}" class="images">
                   </div>
                   <div class="custom-control custom-radio" *ngFor="let alternativa of item.alternativas">
-                    <input
-                      type="radio"
-                      [name] ="item.id"
-                      [(ngModel)]="model[item.id]"
-                      [id]="alternativa.idAlternativa"
-                      [value] = "alternativa.puntaje"
-                      (change) ="radioChangeOne($event)"
-                      ngModel [ngModelOptions]="{updateOn: 'change'}"
-                      #{{item.id}}="ngModel"
-                      [ngClass]="{ 'is-invalid': f.submitted && item.id.invalid }"
-                      required
-                      class="custom-control-input"
-                      [attr.data-puntaje]="alternativa.puntaje"
-                      [attr.data-idPregunta]="item.id"
-                      [attr.data-grupo]="item.grupo"
-                    >
+                    <input type="radio" [name]="item.id" [(ngModel)]="model[item.id]" [id]="alternativa.idAlternativa"
+                      [value]="alternativa.puntaje" (change)="radioChangeOne($event)" ngModel [ngModelOptions]="{updateOn: 'change'}"
+                      #{{item.id}}="ngModel" [ngClass]="{ 'is-invalid': f.submitted && item.id.invalid }" required
+                      class="custom-control-input" [attr.data-puntaje]="alternativa.puntaje" [attr.data-idPregunta]="item.id"
+                      [attr.data-grupo]="item.grupo">
                     <label class="custom-control-label" [for]="alternativa.idAlternativa">{{ alternativa.detalle }}</label>
 
                   </div>
                 </div>
+                <p *ngIf="showError" class="animated fadeIn fast">
+                  <ngb-alert #warning [dismissible]="false" [type]="'danger'">
+                    Debe responder la pregunta
+                  </ngb-alert>
+                </p>
                 <div class="d-flex justify-content-end">
                   <button class="btn bg-info text-white mt-3" (click)="siguiente()" *ngIf="showButton">Siguiente</button>
                 </div>
+
               </div>
             </div>
           </ng-container>
         </div>
         <div class="text-center">
-          <button class="btn btn-primary mt-3 mb-3" *ngIf="showButtonFinalize">finalizar</button>
+          <button class="btn btn-primary mt-3 mb-3" *ngIf="showButtonFinalize" (click)="validateRadioButton()">Finalizar</button>
         </div>
+
       </form>
     </div>
   </div>
