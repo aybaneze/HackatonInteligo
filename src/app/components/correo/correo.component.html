@@ -1,7 +1,7 @@
 <button class="btn btn-primary mt-3 mb-3" (click)="open(content)" style="visibility: hidden" #showResult *ngIf="show !== null">Mostrar</button>
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title subtitle" id="modal-basic-title" class="title">A continuación se le mostrará su perfil de inversión</h4>
+    <h5 class="modal-title subtitle" id="modal-basic-title" class="title">A continuación se le mostrará su perfil de inversión</h5>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -16,7 +16,7 @@
           name="correo" [(ngModel)]="correo">
         <button class="ml-2 btn btn-primary" type="submit" (click)="sendEmail()">Enviar</button>
       </div>
-      
+
     </div>
   </div>
 </ng-template>
