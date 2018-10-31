@@ -1,8 +1,13 @@
 import { Component, OnInit } from "@angular/core";
-import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
+import { SessionStorageService, LocalStorageService} from 'ngx-webstorage';
+
+import {
+  NgbModal,
+  ModalDismissReasons,
+  NgbModalRef
+} from "@ng-bootstrap/ng-bootstrap";
 import { ViewEncapsulation } from "@angular/core";
 import { CuestionarioService } from "../services/cuestionario.service";
-
 
 @Component({
   selector: "app-cuestionario",
@@ -24,9 +29,14 @@ export class CuestionarioComponent implements OnInit {
   showButton: Boolean = true;
   showButtonFinalize: Boolean = false;
   profile: string;
+  showModalResult;
+
+  private modalRef: NgbModalRef;
+
   constructor(
     private modalService: NgbModal,
-    private _cuestionario: CuestionarioService
+    private _cuestionario: CuestionarioService,
+    private _sessinSt: SessionStorageService
   ) {}
 
   ngOnInit() {
@@ -34,20 +44,19 @@ export class CuestionarioComponent implements OnInit {
   }
 
   open(content) {
-    this.modalService
-      .open(content, {
-        windowClass: "",
-        ariaLabelledBy: "modal-basic-title",
-        size: "lg"
-      })
-      .result.then(
-        result => {
-          this.closeResult = `Closed with: ${result}`;
-        },
-        reason => {
-          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-        }
-      );
+    this.modalRef = this.modalService.open(content, {
+      windowClass: "",
+      ariaLabelledBy: "modal-basic-title",
+      size: "lg"
+    });
+    this.modalRef.result.then(
+      result => {
+        this.closeResult = `Closed with: ${result}`;
+      },
+      reason => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      }
+    );
   }
 
   private getDismissReason(reason: any): string {
@@ -70,8 +79,10 @@ export class CuestionarioComponent implements OnInit {
         this.totalGrupo2 = this.totalGrupo2 + Number(this.model[element]);
       }
     }
-
     this.perfil(this.totalGrupo1, this.totalGrupo2);
+    this._sessinSt.store('showResult', 'true');
+    this.modalRef.close();
+    this.showModalResult = true;
   }
 
   siguiente() {
@@ -117,8 +128,7 @@ export class CuestionarioComponent implements OnInit {
       this.profile =
         total2 >= 0 && total2 <= 4 ? "Altamente conservador" : "Conservador";
     } else if (total1 === 19 || total1 === 21) {
-      this.profile =
-        total2 >= 0 && total2 <= 32 ? "Conservador" : "";
+      this.profile = total2 >= 0 && total2 <= 32 ? "Conservador" : "";
     } else if (total1 === 23) {
       this.profile = total2 >= 0 && total2 <= 28 ? "Conservador" : "Moderado";
     } else if (total1 === 25) {

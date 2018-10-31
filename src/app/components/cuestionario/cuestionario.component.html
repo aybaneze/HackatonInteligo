@@ -47,10 +47,10 @@
         </ng-container>
       </div>
       <div class="text-center">
-        <button class="btn btn-primary mt-3 mb-3" *ngIf="showButtonFinalize" (click)="modal.close('Save click')">finalizar</button>
+        <button class="btn btn-primary mt-3 mb-3" *ngIf="showButtonFinalize">finalizar</button>
       </div>
     </form>
   </div>
 </ng-template>
-
 <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Conocer mi perfil</button>
+<app-correo *ngIf="showModalResult"></app-correo>

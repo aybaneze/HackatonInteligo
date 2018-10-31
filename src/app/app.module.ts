@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 // IMPORTANDO PAQUETE PARA PDF
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 
 // graficos
 import { ChartsModule } from 'ng2-charts';
@@ -21,6 +22,9 @@ import { environment } from 'src/environments/environment';
 
 import { CorreoComponent } from './components/correo/correo.component';
 
+
+import { APP_ROUTING } from './app.routes';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +40,9 @@ import { CorreoComponent } from './components/correo/correo.component';
     AngularFireDatabaseModule,
     FormsModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxWebstorageModule.forRoot(),
+    APP_ROUTING
   ],
   providers: [
     UsuarioService,
