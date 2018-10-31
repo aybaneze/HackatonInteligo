@@ -13,6 +13,10 @@
    color: #8285bf; */
 }
 
+ol {
+  padding-left: 45px;
+}
+
 .bp-SubNav p{
   color :  #0b1d75;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
