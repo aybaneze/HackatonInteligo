@@ -1,26 +1,28 @@
 <button class="btn btn-primary mt-3 mb-3" (click)="open(content)" style="visibility: hidden" #showResult *ngIf="show !== null">Mostrar</button>
-
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <h4 class="modal-title subtitle" id="modal-basic-title" class="title">A continuación se le mostrará su perfil de inversión</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="modal-body">
-    <form>
-      <div class="form-group">
-        <i class="fas fa-envelope fa-2x"></i>
-        <label for="exampleInputEmail1">Ingrese su correo electrónico y le enviaremos la información de su perfil
-          y portafolio óptimo</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresar correo electrónico"
+  <div class="modal-body container">
+    <div class="form-group d-flex flex-column align-items-center justify-content-center">
+      <img src="./assets/images/email.png" style="width:  80px; height: 80px;" class="mt-2 align-center icono" alt="correo"><br>
+      <label for="exampleInputEmail1" class="lbl mt-2">Ingrese su correo electrónico y le enviaremos la información
+        de su perfil y portafolio óptimo.</label>
+      <div class="d-flex" style="width: 85%">
+        <input type="email" class="form-control " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresar correo electrónico"
           name="correo" [(ngModel)]="correo">
+        <button class="ml-2 btn btn-primary" type="submit" (click)="sendEmail()">Enviar</button>
       </div>
-      <!-- <input type="text" placeholder="ingresa correo" name="correo" [(ngModel)]="correo"> -->
-      <button class="btn btn-primary" type="submit" (click)="sendEmail()">Enviar</button>
-    </form>
+      
+    </div>
   </div>
 </ng-template>
+
+
+
 
 <!--
 <div class="container mt-5">
