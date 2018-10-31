@@ -23,7 +23,7 @@ export class CorreoComponent implements OnInit {
   closeResult: string;
   name: string = 'Inteligo SAB';
   show: string;
-
+  private modalRef: NgbModalRef;
   @ViewChild('showResult') showResult: ElementRef;
 
   constructor(private madril: MandrilService, private modalService: NgbModal, private _sessinSt: SessionStorageService, private _router: Router) { }

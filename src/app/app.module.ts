@@ -4,8 +4,7 @@ import { FormsModule } from '@angular/forms';
 // IMPORTANDO PAQUETE PARA PDF
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
-import { NgxWebstorageModule } from 'ngx-webstorage';
-
+import { Ng2Webstorage } from 'ngx-webstorage';
 /* ngx-webstorage */
 
 // graficos
@@ -43,13 +42,13 @@ import { HomeComponent } from './components/home/home.component';
   ],
   imports: [
     BrowserModule,
+    Ng2Webstorage,
     ChartsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     FormsModule,
     NgbModule,
     HttpClientModule,
-    NgxWebstorageModule.forRoot(),
     APP_ROUTING
   ],
   providers: [
