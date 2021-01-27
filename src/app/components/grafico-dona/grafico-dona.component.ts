@@ -41,6 +41,7 @@ export class GraficoDonaComponent implements OnInit {
 
   public chartHovered(e: any): void {
     console.log(e);
+    //Console
   }
 
   mostrarData() {
